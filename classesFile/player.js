@@ -1,12 +1,8 @@
 
 
 export default class Person{
-    constructor(name){
-        this.name = name;
+    constructor(){
         this.time= [];
-        console.log(`welcome ${this.name}\r\n`);
-
-
     }
     average(){
         let sum = 0
@@ -17,4 +13,3 @@ export default class Person{
 
     }
 }
-

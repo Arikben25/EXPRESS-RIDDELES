@@ -1,5 +1,5 @@
-import Ridder from "../classesFile/riddle.js"
+import Riddle from "../classesFile/riddle.js"
 
-export default new Ridder(1,"math","2+2?",4)
+export default new Riddle(1,"math","2+2?",4)
 
 
