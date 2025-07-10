@@ -1,13 +1,18 @@
-const path = "http://localhost:3001"
+import fs from "fs"
+import express from "express"
 
-// פונקציה האחרית לבקש מהשרת ולהחזיר את כל החידות
+const app = express()
+const path = "./db/riddles.txt"
 
-const allReddles = function readAllRiddles(){
-    fetch(path,{
-        method:"get",
-        headers:{
-            "Content-Type": "application/json"
-        }
-    }).then((res)=>console.log(res))
-    .catch(req => console.log("err: ", req))
+// פונקציה האחרית לקרוא מהקובץ ולהחזיר את כל החידות לשרת
+
+export function readAllRiddles(){
+    try{
+        const data = fs.readFileSync(path,"utf-8")
+        return JSON.parse(data)
+    }
+    catch(err){
+        console.log(`yuor arr ${err}`);
+        return json({error:err})
+    }  
 }

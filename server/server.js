@@ -1,16 +1,15 @@
-import http from "http"
-const port = 3002
+import express from "express"
+import {loger} from "./utils/middleRwer.js"
+import configRoutes from "./routes/configRoutes.js"
 
-// יצירת שרת
-const server = http.createServer((req,res)=>{
-    console.log("url: ",req.url);
-    console.log("method: ",req.method);
-    console.log("haders: ",req.headers);
+const app = express()
+const port = process.env.PORT ||5000
 
-    res.statusCode = 200
-    res.setHeader("Content-Type", "text/plain")
-    res.end(`Hi from your serves`)
+app.use(express.json())
+app.use(loger)
+configRoutes(app)
+
+
+app.listen(port,()=>{
+    console.log(`The server ${port} is app`);
 })
-
-
-server.listen(port,()=>console.log(`th serves is on in port `,port))
