@@ -1,6 +1,8 @@
 import readLine from "readline-sync"
 import person from "./classesFile/player.js"
-import allimports from "./allimports.js";
+import allriddles from "./utils/allimports.js";
+import {getAllRiddles} from "./utils/allimports.js"
+
 
 menu()
 function menu(){
@@ -17,7 +19,7 @@ function menu(){
             manager()
             break;
         case "2":
-            readAllRiddles()
+            getAllRiddles.getAllRiddles()
             break;
         case "3":
             createNewRiddle()
@@ -44,7 +46,7 @@ function manager() {
     console.log(`welcome ${userName}\r\n`);
     const newPerson = new person()
 
-    allimports.forEach(element => {
+    allriddles.forEach(element => {
         const sumTime = getTime(()=> element.startPuzz())
         newPerson.time.push(sumTime)
         console.log(`It took you ${sumTime.toFixed(2)} seconds to solve the puzzle.`)
