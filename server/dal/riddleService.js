@@ -11,7 +11,7 @@ export async function readAllReaddles() {
         return data
     }catch(err){
         console.log(`your err is: ${err}`);
-        return err
+        throw new Error("Could not retrieve readdles from the database")   
     }
 }
 
@@ -45,7 +45,7 @@ export async function putRiddle(num,obj) {
  
 // delet riddle by id
 
-async function  delRiddle(num) {
+export async function  delRiddle(num) {
     try{
         const data = await db.collection("dataBaseDefol")
         .deleteOne({num:num})
@@ -56,7 +56,7 @@ async function  delRiddle(num) {
     }
 }
 
-async function addManyRiddles(obj) {
+export async function addManyRiddles(obj) {
     try{
         const resolt =await db.collection("dataBaseDefol")
     .insertMany(obj)
@@ -66,3 +66,4 @@ async function addManyRiddles(obj) {
         console.error(" err is :",err)
     }
 }
+
