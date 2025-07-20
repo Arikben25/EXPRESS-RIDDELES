@@ -6,7 +6,7 @@ const db = await connect()
 
 export async function readAllReaddles() {
     try{
-       const data = await db.collection("dataBaseDefolt").find().toArray()
+       const data = await db.collection("riddles").find().toArray()
         console.log(data);
         return data
     }catch(err){
@@ -19,7 +19,7 @@ export async function readAllReaddles() {
 
 export async function addOneRiddle(obj){
     try{
-       const resolt = await db.collection("dataBaseDefol")
+       const resolt = await db.collection("riddles")
        .insertOne(obj)
        console.log(resolt);
        return resolt;
@@ -33,7 +33,7 @@ export async function addOneRiddle(obj){
 // put riddle by id 
 export async function putRiddle(num,obj) {
     try{
-        const data = await db.collection("dataBaseDefol").updateOne(
+        const data = await db.collection("riddles").updateOne(
         {num:num},{$set:obj},{upsert:true})
         console.log('data', data);
         return data.insertOne
@@ -47,7 +47,7 @@ export async function putRiddle(num,obj) {
 
 export async function  delRiddle(num) {
     try{
-        const data = await db.collection("dataBaseDefol")
+        const data = await db.collection("riddles")
         .deleteOne({num:num})
         console.log(data);
         return data.deletedCount
@@ -58,7 +58,7 @@ export async function  delRiddle(num) {
 
 export async function addManyRiddles(obj) {
     try{
-        const resolt =await db.collection("dataBaseDefol")
+        const resolt =await db.collection("riddles")
     .insertMany(obj)
     console.log(resolt);
     return resolt
