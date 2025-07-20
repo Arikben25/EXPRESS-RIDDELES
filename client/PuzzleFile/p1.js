@@ -1,5 +1,14 @@
-import Riddle from "../classesFile/riddle.js"
+import {Riddle} from "../classesFile/riddle.js"
+import {getAllRiddles} from "./riddleService.js"
 
-export default new Riddle(1,"math","2+2?",4)
+async function readRiddles() {
+    const allriddles = await getAllRiddles()
+    const arrRidlles = allriddles.map(element => new Riddle(element))
+    
+    return arrRidlles
+}
 
 
+export{
+    readRiddles
+} 
