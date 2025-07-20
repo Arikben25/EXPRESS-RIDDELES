@@ -1,8 +1,10 @@
 import { error } from "console";
 
+// function thet get all riddles
 async function getAllRiddles(){
     try{
-        const res = await fetch("http://localhost:3000/reddels")
+        const res = await fetch("http://localhost:3008/reddles")
+    
     if(!res.ok){
         throw new Error("you have a problem with data");   
     }
@@ -17,8 +19,15 @@ async function getAllRiddles(){
     }   
 }
 
+//function thet add riddle 
+
+async function createNewRiddle(params) {
+    
+}
 
 
-export default{
-    getAllRiddles
+
+export {
+    getAllRiddles,
+    createNewRiddle
 }

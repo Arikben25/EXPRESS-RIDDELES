@@ -1,7 +1,7 @@
 import readLine from "readline-sync"
 import person from "./classesFile/player.js"
 import allriddles from "./utils/allimports.js";
-import {getAllRiddles} from "./utils/allimports.js"
+import {getTime,getAllRiddles,createNewRiddle} from "./utils/allimports.js"
 
 
 menu()
@@ -19,7 +19,7 @@ function menu(){
             manager()
             break;
         case "2":
-            getAllRiddles.getAllRiddles()
+            getAllRiddles()
             break;
         case "3":
             createNewRiddle()
@@ -54,13 +54,4 @@ function manager() {
     });
     const averageTime = newPerson.average()
     console.log(`all due respect ${userName} It took you an average of ${averageTime.toFixed(2)} seconds to solve each puzzle.`)
-
-}
-
-
-function getTime(func){
-    const start = Date.now()
-    func()
-    const end = Date.now()
-    return (end - start) / 1000
 }
