@@ -4,12 +4,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch --env-file=.env server.js" 
+    "start": "node --watch --env-file=.env server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.52.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "mongodb": "^6.17.0"
