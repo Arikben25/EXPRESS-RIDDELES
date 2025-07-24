@@ -4,8 +4,8 @@ export  class Riddle {
     constructor({_id, name, question, answer}) {
         this.id = _id
         this.name = name
-        this.taskDescription = question
-        this.correctAnswer = answer
+        this.taskDescription = question//לשנות שמות
+        this.correctAnswer = answer//לשנות שמות
     }
     
     startPuzz(){
