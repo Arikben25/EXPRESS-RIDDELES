@@ -1,13 +1,15 @@
 
 
-export class Person{
-    constructor(name , password){
-        this.time= [];
+export class Person {
+    constructor(name) {
+        this.time = [];
         this.name = name;
-        this.password = password;
     }
-    
-    average(){
+    hello() {
+        console.log(`Hi ${this.name} the game begins now`);
+    }
+
+    average() {
         let sum = 0
         this.time.forEach(element => {
             sum += element

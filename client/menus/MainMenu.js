@@ -1,5 +1,5 @@
 import rl from "readline-sync"
-import {createUsser, log_in } from "../players/playerFetch.js"
+import { createUsser, log_in, StartingGame } from "../utils/allimports.js"
 
 export async function mainMenu() {
     let my_bool = true;
@@ -14,10 +14,11 @@ export async function mainMenu() {
 
         switch (choice) {
             case "1":
-                startGame()
+                const userName = rl.question("Please enter your name: ")
+                await StartingGame(userName, "guest")
                 break;
             case "2":
-               await createUsser()
+                await createUsser()
                 break;
             case "3":
                 await log_in()
@@ -33,5 +34,3 @@ export async function mainMenu() {
         }
     }
 }
-
-mainMenu()

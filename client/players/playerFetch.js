@@ -43,20 +43,35 @@ export async function log_in() {
             })
         })
         const data = await res.json()
-                
+
         if (res.status == 200 && data.UserType == "manager") {
             console.log(data.msg);
-            adminMenu()
+            await adminMenu(userName, 'manager')
         }
         else if (res.status == 200 && data.UserType == "normal user") {
             console.log(data.msg);
-            userMenu()
+            await userMenu(userName, "normal user")
         }
-        else { console.log('sasasasqssasasasasa'); }
-
-
     } catch (err) {
         console.error('err is ;', err)
     }
 
+}
+
+export async function putTime(userName ,newTime) {
+    try {
+        const res = await fetch('http://localhost:3000/players/apdateTime', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            }, body: JSON.stringify({
+                name: userName,
+                new_time: newTime
+            })
+        })
+        const data =await res.json()
+        console.log(data.msg);
+    }catch(err){
+        console.log('err is', err);
+    }
 }

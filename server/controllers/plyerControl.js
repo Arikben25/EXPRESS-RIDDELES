@@ -43,10 +43,12 @@ export async function putBastTime(req, res) {
         const { name, new_time } = req.body
         const user = await readOnePlayer(name)
 
-        if (new_time <= user[0].bast_time)
+        if (new_time <= user[0].bast_time) {
             res.json({ msg: `the time old saved` });
-        putPlayer(name, { bast_time: new_time })
-        res.json({ msg: 'the bast time is: ', new_time })
+            return
+        }
+        await putPlayer(name, { bast_time: new_time })
+        res.json({ msg: `the bast time is ${new_time} ` })
     } catch (err) {
         console.log('err: ', err);
         res.status(500).json({ msg: 'Server error. Please try again later.' })

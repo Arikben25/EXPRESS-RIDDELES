@@ -13,7 +13,7 @@ export  class Riddle {
     
         while(myBool){
 
-            console.log(` puzzle: ${this.id}, yuor name is: ${this.name}
+            console.log(` puzzle: name is: ${this.name}
             the puzzle is: ${this.taskDescription}`)
             
     
