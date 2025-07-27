@@ -1,6 +1,7 @@
 import rl from "readline-sync"
+import {getAllRiddles , createNewRiddle} from "../utils/allimports.js"
 
-export function adminMenu() {
+export async function adminMenu() {
     let my_bool = true;
     while (my_bool) {
 
@@ -18,10 +19,10 @@ export function adminMenu() {
                 /////////
                 break;
             case "2":
-                /////////
+                getAllRiddles()
                 break;
             case "3":
-                ///////
+                createNewRiddle()
                 break;
             case "5":
                 ///////
@@ -36,4 +37,3 @@ export function adminMenu() {
         }
     }
 }
-adminMenu()

@@ -25,10 +25,11 @@ export async function getOnePlayer(req, res) {
 export async function insertPlyer(req, res) {
     try {
         const { name } = req.body
-        if (!name) {
-            return res.status(400).json({ msg: "Missing 'name' in request body" });
+        const user = await readOnePlayer(name)
+        if (user.length > 0) {
+            return res.status(400).json({ msg: `Username ${name} already exists in the system.` });
         }
-        const result = await addPlyer(name)
+        const result = await addPlyer(req.body)
         console.log(result);
         res.json(result)
     } catch (err) {

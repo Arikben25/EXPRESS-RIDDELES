@@ -31,18 +31,11 @@ export async function readOnePlayer(userName) {
 }
 
 //A function that inserts a new user to db
-export async function addPlyer(name) {
+export async function addPlyer(obj) {
     try {
         const { data, error } = await supabase
             .from(tableName)
-            .insert([
-                {
-                    name: name,
-                    bast_time: 0
-                }],
-                {
-                    returning: "representation"
-                }
+            .insert([obj],
             ).select("*")
         if (error) {
             console.log(`err is:`, error);

@@ -1,6 +1,7 @@
 import rl from "readline-sync"
+import {createNewRiddle} from "../utils/allimports.js"
 
-export function userMenu() {
+export async function userMenu() {
     let my_bool = true
     while (my_bool) {
         const choice = rl.question(`
@@ -15,7 +16,7 @@ export function userMenu() {
                 //////
                 break;
             case "2":
-                /////////
+                createNewRiddle()
                 break;
             case "3":
                 ///////
@@ -31,3 +32,4 @@ export function userMenu() {
         }
     }
 }
+

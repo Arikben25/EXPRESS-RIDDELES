@@ -1,25 +1,26 @@
 import rl from "readline-sync"
+import {createUsser, log_in } from "../players/playerFetch.js"
 
-export function mainMenu() {
+export async function mainMenu() {
     let my_bool = true;
     while (my_bool) {
 
         const choice = rl.question(`
         To play as a guest, press 1.
         To register, press 2.
-        To connect, press 4.
+        To connect, press 3.
         To exit, press 0.
         `);
 
         switch (choice) {
             case "1":
-                //////
+                startGame()
                 break;
             case "2":
-                /////
+               await createUsser()
                 break;
             case "3":
-                /////
+                await log_in()
                 break;
             case "0":
                 my_bool = false;
