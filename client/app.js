@@ -1,11 +1,11 @@
-import readLine from "readline-sync"
-import person from "./classesFile/player.js"
+import rl from "readline-sync"
+import person, { Person } from "./classesFile/player.js"
 import { getTime, getAllRiddles, createNewRiddle, readRiddles } from "./utils/allimports.js"
 
 
 menu()
 function menu() {
-    const choice = readLine.question(`plise enter your choice:
+    const choice = rl.question(`plise enter your choice:
     \r\nenter 1. to Play the game
     \r\nenter 2. to Read all riddles
     \r\nenter 3. to Create a new riddle
@@ -37,18 +37,33 @@ function menu() {
 
 
 
-async function manager() {
-    const userName = readLine.question("enter your name: ")
+async function startGame() {
+    const userName = rl.question("enter your name: ")
     console.log(`welcome ${userName}\r\n`);
-    const newPerson = new person()
+    const person = new person()
     const arrRidlles = await readRiddles()
 
     arrRidlles.forEach(element => {
         const sumTime = getTime(() => element.startPuzz())
-        newPerson.time.push(sumTime)
+        person.time.push(sumTime)
         console.log(`It took you ${sumTime.toFixed(2)} seconds to solve the puzzle.`)
 
     });
-    const averageTime = newPerson.average()
+    const averageTime = person.average()
+    console.log(`all due respect ${userName} It took you an average of ${averageTime.toFixed(2)} seconds to solve each puzzle.`)
+}
+
+
+async function startGame1() {
+    
+    const arrRidlles = await readRiddles()
+    const person = new Person()
+    arrRidlles.forEach(element => {
+        const sumTime = getTime(() => element.startPuzz())
+        person.time.push(sumTime)
+        console.log(`It took you ${sumTime.toFixed(2)} seconds to solve the puzzle.`)
+
+    });
+    const averageTime = person.average()
     console.log(`all due respect ${userName} It took you an average of ${averageTime.toFixed(2)} seconds to solve each puzzle.`)
 }

@@ -4,7 +4,7 @@ import rl from "readline-sync"
 // function thet get all riddles
 async function getAllRiddles(){
     try{
-        const res = await fetch("http://localhost:3008/reddles")
+        const res = await fetch("http://localhost:3000/reddles")
     
     if(!res.ok){
         throw new Error("you have a problem with data");   
@@ -20,6 +20,7 @@ async function getAllRiddles(){
     }   
 }
 
+
 //function thet add riddle 
 
 async function createNewRiddle() {
@@ -28,7 +29,7 @@ async function createNewRiddle() {
     const answer = rl.question("Please enter the answer: ")
 
     try{
-        const res = await fetch("http://localhost:3008/reddles",{
+        const res = await fetch("http://localhost:3000/reddles",{
         method:"POST",
         headers:{
             'Content-Type': 'application/json',
@@ -50,6 +51,10 @@ async function createNewRiddle() {
     }
 }
 
+///To edit a puzzle press
+//////////////////////////
+///To delete a puzzle press
+/////////////////////////
 
 
 export {

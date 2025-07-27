@@ -1,8 +1,10 @@
 
 
-export default class Person{
-    constructor(){
+export class Person{
+    constructor(name , password){
         this.time= [];
+        this.name = name;
+        this.password = password;
     }
     
     average(){
