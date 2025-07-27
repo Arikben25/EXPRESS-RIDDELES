@@ -1,7 +1,7 @@
 import rl from "readline-sync"
-import {createNewRiddle} from "../utils/allimports.js"
+import {createNewRiddle, StartingGame} from "../utils/allimports.js"
 
-export async function userMenu() {
+export async function userMenu(userName , userType) {
     let my_bool = true
     while (my_bool) {
         const choice = rl.question(`
@@ -13,10 +13,10 @@ export async function userMenu() {
     
         switch(choice){
             case "1":
-                //////
+                await StartingGame(userName , userType)
                 break;
             case "2":
-                createNewRiddle()
+                await createNewRiddle()
                 break;
             case "3":
                 ///////
